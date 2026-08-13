@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory App</title>
 </head>
+
 <body>
     <section id="page-home" class="page-home">
         <img src="/assets/icons/stadia_controller.svg" alt="" class="page-home__controller-bg">
@@ -19,6 +21,102 @@
         </div>
     </section>
 
+    <section id="page-settings" class="page-settings">
+        <header class="page-settings__header">
+            <h1 class="page-settings__title">Settings</h1>
+            <img src="/assets/icons/yellow_line.svg" alt="" class="page-settings__title-line">
+        </header>
+
+        <div class="page-settings__body">
+            <div class="page-settings__left">
+                <form id="settings-form" class="page-settings__form">
+                    <div class="settings-group">
+                        <div class="settings-group__title-wrapper">
+                            <img src="/assets/icons/palette.svg" alt="" class="settings-group__icon">
+                            <h2 class="settings-group__title">Game themes</h2>
+                        </div>
+                        <div class="settings-group__options">
+                            <label class="radio-option">
+                                <input type="radio" name="theme" value="gaming" checked>
+                                <span class="radio-option__label">Games theme cards</span>
+                                <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="theme" value="food">
+                                <span class="radio-option__label">Food theme</span>
+                                <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <div class="settings-group__title-wrapper">
+                            <img src="/assets/icons/chess_pawn.svg" alt="" class="settings-group__icon">
+                            <h2 class="settings-group__title">Choose player</h2>
+                        </div>
+                        <div class="settings-group__options">
+                            <label class="radio-option">
+                                <input type="radio" name="player" value="blue" checked>
+                                <span class="radio-option__label">Blue</span>
+                                <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="player" value="orange">
+                                <span class="radio-option__label">Orange</span>
+                                <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <div class="settings-group__title-wrapper">
+                            <img src="/assets/icons/board.svg" alt="" class="settings-group__icon">
+                            <h2 class="settings-group__title">Board size</h2>
+                        </div>
+                        <div class="settings-group__options">
+                            <label class="radio-option">
+                                <input type="radio" name="boardSize" value="16" checked>
+                                <span class="radio-option__label">16 cards</span>
+                                <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="boardSize" value="24">
+                                <span class="radio-option__label">24 cards</span>
+                                <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="boardSize" value="36">
+                                <span class="radio-option__label">36 cards</span>
+                                <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="page-settings__right">
+                <div class="preview-box">
+                    <img id="theme-preview-img" src="/assets/icons/preview_gaming_theme.svg" alt="Theme Preview"
+                        class="preview-box__image">
+
+                    <div class="preview-box__bar">
+                        <span class="preview-box__text">Theme</span>
+                        <img src="/assets/icons/yellow_slash.svg" alt="" class="preview-box__slash">
+                        <span class="preview-box__text">Player</span>
+                        <img src="/assets/icons/yellow_slash.svg" alt="" class="preview-box__slash">
+                        <span class="preview-box__text">Board size</span>
+
+                        <button id="btn-start" class="btn btn--start" type="button">
+                            <img src="/assets/icons/smart_display.svg" alt="" class="btn__icon">
+                            <span>Start</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script type="module" src="./src/main.ts"></script>
 </body>
+
 </html>

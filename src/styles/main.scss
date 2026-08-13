@@ -2,6 +2,7 @@
 @use './base/typography';
 @use './components/buttons';
 @use './pages/home';
+@use './pages/settings';
 
 *, *::before, *::after {
     box-sizing: border-box;
