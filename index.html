@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory App</title>
 </head>
-
 <body>
-    <h1>Memory App</h1>
-
-    <section id="field">
-        <button class="card">
-            <div class="card__inner">
-                <div class="card__face"></div>
-                <div class="card__face card__face--back"></div>
-            </div>
-        </button>
+    <section id="page-home" class="page-home">
+        <img src="/assets/icons/stadia_controller.svg" alt="" class="page-home__controller-bg">
+        <div class="page-home__content">
+            <span class="page-home__subtitle">It’s play time.</span>
+            <h1 class="page-home__title">Ready to play?</h1>
+            <button id="btn-to-settings" class="btn btn--primary">
+                <img src="/assets/icons/stadia_controller_black.svg" alt="" class="btn__icon-controller">
+                <span>Play</span>
+                <img src="/assets/icons/arrow_right.svg" alt="" class="btn__icon-arrow">
+            </button>
+        </div>
     </section>
 
     <script type="module" src="./src/main.ts"></script>
 </body>
-
 </html>

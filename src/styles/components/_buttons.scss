@@ -1,0 +1,45 @@
+@use '../abstract/variables' as *;
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 6px;
+    font-family: $font-title;
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 300ms ease;
+
+    &--primary {
+        background-color: $color-btn-primary;
+        color: $color-text-dark;
+    }
+
+    &__icon-controller {
+        width: 28px;
+        height: 28px;
+        transition: transform 300ms ease;
+    }
+
+    &__icon-arrow {
+        width: 20px;
+        height: 20px;
+        transition: transform 300ms ease;
+    }
+
+    &:hover {
+        transform: scale(1.08);
+
+        .btn__icon-controller {
+            transform: rotate(25.77deg);
+        }
+
+        .btn__icon-arrow {
+            transform: scale(1.2) translateX(3px);
+        }
+    }
+}

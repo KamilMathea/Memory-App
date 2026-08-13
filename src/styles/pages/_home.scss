@@ -1,0 +1,44 @@
+@use '../abstract/variables' as *;
+
+.page-home {
+    position: relative;
+    width: 100%;
+    min-height: 100dvh;
+    background-color: $color-bg-main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        z-index: 2;
+    }
+
+    &__subtitle {
+        font-family: $font-subtitle;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        align-self: flex-start;
+    }
+
+    &__title {
+        font-family: $font-title;
+        color: $color-text-light;
+        font-size: 3.5rem;
+        margin-bottom: 2rem;
+    }
+
+    &__controller-bg {
+        position: absolute;
+        bottom: 6px;
+        left: -16px;
+        width: 250px;
+        pointer-events: none;
+        z-index: 1;
+    }
+}
