@@ -1,9 +1,14 @@
-$color-bg-main: rgba(48, 49, 49, 1);
-$color-btn-primary: rgba(240, 234, 110, 1);
-$color-text-dark: #1a1a1a;
-$color-text-light: #ffffff;
+$color-bg-main: rgb(48, 49, 49);
+$color-btn-primary: rgb(240, 234, 110);
+$color-text-dark: rgb(26, 26, 26);
+$color-text-light: rgb(255, 255, 255);
+$color-text-muted: rgba(255, 255, 255, 0.8);
 
-$font-title: 'Red Rose', sans-serif;
-$font-subtitle: 'Almarai', sans-serif;
+$font-title: 'Red Rose', cursive, sans-serif;
+$font-body: 'Almarai', sans-serif;
+
+$font-size-base: 1rem;
+$font-size-subtitle: clamp(1rem, 1.5vw, 1.25rem);
+$font-size-title: clamp(3.5rem, 6vw, 4.5rem);
 
 $breakpoint-widescreen: 1440px;

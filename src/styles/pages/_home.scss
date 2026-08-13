@@ -19,9 +19,9 @@
     }
 
     &__subtitle {
-        font-family: $font-subtitle;
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 1.2rem;
+        font-family: $font-body;
+        color: $color-text-muted;
+        font-size: $font-size-subtitle;
         margin-bottom: 0.5rem;
         align-self: flex-start;
     }
@@ -29,7 +29,7 @@
     &__title {
         font-family: $font-title;
         color: $color-text-light;
-        font-size: 3.5rem;
+        font-size: $font-size-title;
         margin-bottom: 2rem;
     }
 
