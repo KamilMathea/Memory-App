@@ -42,3 +42,35 @@
         z-index: 1;
     }
 }
+
+.btn--primary {
+    gap: 1rem;
+    padding: 0.8rem 2rem;
+    font-size: 1.25rem;
+    background-color: $color-btn-primary;
+    color: $color-text-dark;
+
+    .btn__icon-controller {
+        width: 28px;
+        height: 28px;
+        transition: transform 300ms ease;
+    }
+
+    .btn__icon-arrow {
+        width: 20px;
+        height: 20px;
+        transition: transform 300ms ease;
+    }
+
+    &:hover {
+        transform: scale(1.08);
+
+        .btn__icon-controller {
+            transform: rotate(25.77deg);
+        }
+
+        .btn__icon-arrow {
+            transform: scale(1.2) translateX(3px);
+        }
+    }
+}
