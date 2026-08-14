@@ -23,6 +23,8 @@ export function createGameBoard(settings: GameSettings): void {
     });
 
     boardElement.appendChild(fragment);
+
+    setupCardFlipLogic(boardElement);
 }
 
 function createCardElement(cardId: number, theme: 'gaming' | 'food'): HTMLElement {
@@ -54,4 +56,66 @@ function shuffleArray<T>(array: T[]): T[] {
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
+}
+
+let flippedCards: HTMLElement[] = [];
+let isLockBoard = false;
+
+export function setupCardFlipLogic(boardElement: HTMLElement): void {
+    boardElement.addEventListener('click', handleCardClick);
+}
+
+function handleCardClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    const card = target.closest('.card') as HTMLElement | null;
+    
+    if (!card || isLockBoard || isCardDisabled(card)) return;
+    
+    flipCard(card);
+}
+
+function isCardDisabled(card: HTMLElement): boolean {
+    const isFlipped = card.classList.contains('is-flipped');
+    const isMatched = card.classList.contains('is-matched');
+    return isFlipped || isMatched || flippedCards.includes(card);
+}
+
+function flipCard(card: HTMLElement): void {
+    card.classList.add('is-flipped');
+    flippedCards.push(card);
+
+    if (flippedCards.length === 2) {
+        checkForMatch();
+    }
+}
+
+function checkForMatch(): void {
+    const [cardOne, cardTwo] = flippedCards;
+    const isMatch = cardOne.dataset.cardId === cardTwo.dataset.cardId;
+
+    if (isMatch) {
+        handleMatch(cardOne, cardTwo);
+    } else {
+        handleMismatch(cardOne, cardTwo);
+    }
+}
+
+function handleMatch(cardOne: HTMLElement, cardTwo: HTMLElement): void {
+    cardOne.classList.add('is-matched');
+    cardTwo.classList.add('is-matched');
+    resetTurn();
+}
+
+function handleMismatch(cardOne: HTMLElement, cardTwo: HTMLElement): void {
+    isLockBoard = true;
+    setTimeout(() => {
+        cardOne.classList.remove('is-flipped');
+        cardTwo.classList.remove('is-flipped');
+        resetTurn();
+    }, 1000);
+}
+
+function resetTurn(): void {
+    flippedCards = [];
+    isLockBoard = false;
 }
