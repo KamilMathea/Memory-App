@@ -101,11 +101,14 @@
     }
 
     &__hover-line {
-        display: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.15s ease, visibility 0.15s ease;
     }
 
     &:hover .radio-option__hover-line {
-        display: inline-block;
+        opacity: 1;
+        visibility: visible;
     }
 }
 
@@ -119,7 +122,6 @@
 
     &__image {
         width: 100%;
-        height: auto;
     }
 
     &__bar {
@@ -134,8 +136,14 @@
         font-size: $font-size-base;
     }
 
+    &__text {
+        text-align: center;
+        white-space: nowrap;
+    }
+
     &__slash {
         height: 16px;
+        flex-shrink: 0;
     }
 }
 
