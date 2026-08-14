@@ -38,7 +38,7 @@
                         <div class="settings-group__options">
                             <label class="radio-option">
                                 <input type="radio" name="theme" value="gaming" checked>
-                                <span class="radio-option__label">Games theme cards</span>
+                                <span class="radio-option__label">Gaming theme</span>
                                 <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
                             </label>
                             <label class="radio-option">
@@ -100,13 +100,13 @@
                         class="preview-box__image">
 
                     <div class="preview-box__bar">
-                        <span class="preview-box__text">Theme</span>
+                        <span id="selected-theme" class="preview-box__text">Theme</span>
                         <img src="/assets/icons/yellow_slash.svg" alt="" class="preview-box__slash">
-                        <span class="preview-box__text">Player</span>
+                        <span id="selected-player" class="preview-box__text">Player</span>
                         <img src="/assets/icons/yellow_slash.svg" alt="" class="preview-box__slash">
-                        <span class="preview-box__text">Board size</span>
+                        <span id="selected-board-size" class="preview-box__text">Board size</span>
 
-                        <button id="btn-start" class="btn btn--start" type="button">
+                        <button id="btn-start" class="btn btn--start" type="button" disabled>
                             <img src="/assets/icons/smart_display.svg" alt="" class="btn__icon">
                             <span>Start</span>
                         </button>

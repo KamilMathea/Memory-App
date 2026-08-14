@@ -7,7 +7,7 @@
     min-height: 100dvh;
     background-color: #ffffff;
     color: $color-text-dark;
-    padding: 3rem 4rem;
+    padding: 3rem;
     gap: 3rem;
 
     &__header {
@@ -149,11 +149,33 @@
     font-weight: 700;
     border: none;
     padding: 0.5rem 1.25rem;
-    border-radius: 50px;
-    cursor: pointer;
+    border-radius: 6px;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
 
     .btn__icon {
         width: 20px;
         height: 20px;
+        filter: opacity(0.5);
+        transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    &--active {
+        background-color: $color-btn-primary;
+        cursor: pointer;
+        opacity: 1;
+
+        .btn__icon {
+            filter: brightness(0);
+        }
+
+        &:hover {
+            transform: scale(1.05);
+
+            .btn__icon {
+                transform: rotate(-5.33deg);
+            }
+        }
     }
 }
