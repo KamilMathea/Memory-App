@@ -48,8 +48,8 @@
         .btn--exit {
             font-family: $font-delius;
             background-color: $color-exit-bg-food;
-            color: $color-food-exit-icon;
-            border: 1px solid $color-exit-border-food;
+            color: $color-food-accent;
+            border: 1px solid $color-food-accent;
 
             .btn__icon-exit {
                 filter: invert(56%) sepia(82%) saturate(1450%) hue-rotate(346deg) brightness(98%) contrast(93%);
@@ -144,14 +144,6 @@
     max-width: 1000px;
     gap: 1rem;
     justify-content: center;
-}
-
-.game-board {
-    display: grid;
-    width: 100%;
-    max-width: 900px;
-    gap: 1rem;
-    justify-content: center;
     margin: 0 auto;
 
     &[data-size="16"] {
@@ -178,11 +170,16 @@
         height: 100%;
         transition: transform 0.6s ease;
         transform-style: preserve-3d;
+        border-radius: 8px;
     }
 
     &.is-flipped &__inner,
     &.is-matched &__inner {
         transform: rotateY(180deg);
+    }
+
+    &.is-matched &__inner {
+        box-shadow: 0 0 0 3px var(--match-color);
     }
 
     &__face {
@@ -204,4 +201,12 @@
             transform: rotateY(180deg);
         }
     }
+}
+
+.page-game[data-theme="gaming"] {
+    --match-color: #{$color-gaming-accent};
+}
+
+.page-game[data-theme="food"] {
+    --match-color: #{$color-food-accent};
 }
