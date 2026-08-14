@@ -3,6 +3,7 @@
 @use './components/buttons';
 @use './pages/home';
 @use './pages/settings';
+@use 'pages/game';
 
 *, *::before, *::after {
     box-sizing: border-box;

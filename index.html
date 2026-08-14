@@ -118,6 +118,37 @@
         </div>
     </section>
 
+    <section id="page-game" class="page-game " data-theme="gaming"> <!-- is-hidden -->
+        <header class="game-header">
+            <div class="game-header__scores">
+                <div class="score-box score-box--orange">
+                    <img src="/assets/icons/chess_pawn_orange.svg" alt="" class="score-box__icon">
+                    <span id="score-player-orange" class="score-box__count">0</span>
+                </div>
+                <div class="score-box score-box--blue">
+                    <img src="/assets/icons/chess_pawn_blue.svg" alt="" class="score-box__icon">
+                    <span id="score-player-blue" class="score-box__count">0</span>
+                </div>
+            </div>
+
+            <div class="game-header__current-player">
+                <span class="current-player__text">Current player:</span>
+                <div class="current-player__badge current-player__badge--blue">
+                    <img id="current-player-icon" src="/assets/icons/chess_pawn_blue.svg" alt=""
+                        class="current-player__icon">
+                </div>
+            </div>
+
+            <button id="btn-exit-game" class="btn btn--exit" type="button">
+                <img src="/assets/icons/exit.svg" alt="" class="btn__icon-exit">
+                <span>Exit game</span>
+            </button>
+        </header>
+
+        <main class="game-board" id="game-board">
+        </main>
+    </section>
+
     <script type="module" src="./src/main.ts"></script>
 </body>
 

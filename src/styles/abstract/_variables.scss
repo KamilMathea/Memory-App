@@ -3,11 +3,30 @@ $color-btn-primary: rgb(240, 234, 110);
 $color-text-dark: rgb(26, 26, 26);
 $color-text-light: rgb(255, 255, 255);
 $color-text-muted: rgba(255, 255, 255, 0.8);
+
 $color-bg-bar: rgba(246, 246, 246, 1);
 $color-btn-disabled: rgba(219, 219, 214, 1);
 
+$color-bg-gaming: rgba(41, 79, 96, 1);
+$color-bg-food: rgba(255, 255, 255, 1);
+$color-bar-gaming: rgba(253, 150, 201, 0.2);
+$color-bar-food: rgba(240, 229, 217, 1);
+$color-player-orange: rgba(234, 105, 0, 1);
+$color-player-blue: rgba(9, 127, 197, 1);
+$color-player-blue-bg: rgba(31, 170, 252, 1);
+$color-food-player-text: rgba(164, 82, 18, 1);
+$color-food-exit-icon: rgba(243, 131, 45, 1);
+$color-exit-bg-gaming: rgba(237, 27, 118, 0.08);
+$color-exit-bg-food: rgba(255, 249, 242, 1);
+$color-exit-border: rgba(237, 27, 118, 0.08);
+$color-exit-border-gaming: rgba(231, 28, 79, 1);
+$color-exit-border-food: rgba(243, 131, 45, 1);
+
 $font-title: 'Red Rose', cursive, sans-serif;
 $font-body: 'Almarai', sans-serif;
+$font-delius: 'Delius Unicase', cursive, sans-serif;
+$font-orbitron: 'Orbitron', sans-serif;
+$font-klee: 'Klee One', cursive, sans-serif;
 
 $font-size-base: 1rem;
 $font-size-subtitle: clamp(1rem, 1.5vw, 1.25rem);
