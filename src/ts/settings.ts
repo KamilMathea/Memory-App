@@ -1,31 +1,4 @@
-import './styles/main.scss';
-
-function hideElement(element: HTMLElement): void {
-    element.classList.add('is-hidden');
-}
-
-function showElement(element: HTMLElement): void {
-    element.classList.remove('is-hidden');
-}
-
-function navigateToSettings(): void {
-    const homePage = document.getElementById('page-home');
-    const settingsPage = document.getElementById('page-settings');
-
-    if (homePage && settingsPage) {
-        hideElement(homePage);
-        showElement(settingsPage);
-    }
-}
-
-function initNavigation(): void {
-    const playBtn = document.getElementById('btn-to-settings');
-    if (playBtn) {
-        playBtn.addEventListener('click', navigateToSettings);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', initNavigation);
+import { createGameBoard, GameSettings } from './gameBoard';
 
 function updatePreviewImage(themeValue: string): void {
     const previewImg = document.getElementById('theme-preview-img') as HTMLImageElement;
@@ -44,7 +17,6 @@ function getSelectedRadioValue(name: string): string | null {
 }
 
 function handleThemeHover(event: MouseEvent): void {
-    const label = (event.currentTarget as HTMLElement).querySelector('.radio-option__label');
     const input = (event.currentTarget as HTMLElement).querySelector('input') as HTMLInputElement;
     if (input) {
         updatePreviewImage(input.value);
@@ -90,10 +62,35 @@ function updateSettingsSummary(): void {
     }
 }
 
-function initSettingsListeners(): void {
-    const form = document.getElementById('settings-form');
+export function initSettings(): void {
+    const form = document.getElementById('settings-form') as HTMLFormElement | null;
+    const pageSettings = document.getElementById('page-settings');
+    const pageGame = document.getElementById('page-game');
+
     if (form) {
         form.addEventListener('change', updateSettingsSummary);
+
+        form.addEventListener('submit', (event: Event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const settings: GameSettings = {
+                theme: (formData.get('theme') as 'gaming' | 'food') || 'gaming',
+                player: (formData.get('player') as 'blue' | 'orange') || 'blue',
+                boardSize: parseInt(formData.get('boardSize') as string, 10) as 16 | 24 | 36
+            };
+
+            if (pageGame) {
+                pageGame.setAttribute('data-theme', settings.theme);
+            }
+
+            createGameBoard(settings);
+
+            if (pageSettings && pageGame) {
+                pageSettings.classList.add('is-hidden');
+                pageGame.classList.remove('is-hidden');
+            }
+        });
     }
 
     const themeOptions = document.querySelectorAll('input[name="theme"]');
@@ -107,7 +104,3 @@ function initSettingsListeners(): void {
 
     updateSettingsSummary();
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    initSettingsListeners();
-});

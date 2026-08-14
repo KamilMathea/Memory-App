@@ -108,7 +108,7 @@
                         <img src="/assets/icons/yellow_slash.svg" alt="" class="preview-box__slash">
                         <span id="selected-board-size" class="preview-box__text">Board size</span>
 
-                        <button id="btn-start" class="btn btn--start" type="button" disabled>
+                        <button id="btn-start" class="btn btn--start" type="submit" form="settings-form" disabled>
                             <img src="/assets/icons/smart_display.svg" alt="" class="btn__icon">
                             <span>Start</span>
                         </button>
@@ -118,7 +118,7 @@
         </div>
     </section>
 
-    <section id="page-game" class="page-game " data-theme="gaming"> <!-- is-hidden -->
+    <section id="page-game" class="page-game is-hidden" data-theme="gaming">
         <header class="game-header">
             <div class="game-header__scores">
                 <div class="score-box score-box--orange">
@@ -149,7 +149,7 @@
         </main>
     </section>
 
-    <script type="module" src="./src/main.ts"></script>
+    <script type="module" src="./src/ts/main.ts"></script>
 </body>
 
 </html>
