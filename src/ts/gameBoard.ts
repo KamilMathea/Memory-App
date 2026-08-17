@@ -32,16 +32,19 @@ function createCardElement(cardId: number, theme: 'gaming' | 'food'): HTMLElemen
     card.className = 'card';
     card.dataset.cardId = cardId.toString();
 
-    const backSrc = `/assets/cards/${theme}/card_back.svg`;
+    const backContent = theme === 'food'
+        ? `<img src="/assets/icons/DA_logo.svg" alt="Developer Akademie Logo">`
+        : '';
+
     const frontSrc = `/assets/cards/${theme}/card_${cardId}.svg`;
 
     card.innerHTML = `
         <div class="card__inner">
             <div class="card__face card__face--back">
-                <img src="${backSrc}" alt="Card Back">
+                ${backContent}
             </div>
             <div class="card__face card__face--front">
-                <img src="${frontSrc}" alt="Card Front ${cardId}">
+                <img src="${frontSrc}" alt="Card Icon ${cardId}">
             </div>
         </div>
     `;
@@ -68,9 +71,9 @@ export function setupCardFlipLogic(boardElement: HTMLElement): void {
 function handleCardClick(event: MouseEvent): void {
     const target = event.target as HTMLElement;
     const card = target.closest('.card') as HTMLElement | null;
-    
+
     if (!card || isLockBoard || isCardDisabled(card)) return;
-    
+
     flipCard(card);
 }
 

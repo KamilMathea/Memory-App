@@ -141,9 +141,10 @@
 .game-board {
     display: grid;
     width: 100%;
-    max-width: 1000px;
-    gap: 1rem;
+    max-width: 800px;
+    gap: 0.5rem;
     justify-content: center;
+    align-content: center;
     margin: 0 auto;
 
     &[data-size="16"] {
@@ -160,7 +161,7 @@
 }
 
 .card {
-    aspect-ratio: 1 / 1;
+    width: 100%;
     perspective: 1000px;
     cursor: pointer;
 
@@ -170,7 +171,6 @@
         height: 100%;
         transition: transform 0.6s ease;
         transform-style: preserve-3d;
-        border-radius: 8px;
     }
 
     &.is-flipped &__inner,
@@ -178,22 +178,20 @@
         transform: rotateY(180deg);
     }
 
-    &.is-matched &__inner {
-        box-shadow: 0 0 0 3px var(--match-color);
-    }
-
     &__face {
         position: absolute;
         width: 100%;
         height: 100%;
         backface-visibility: hidden;
-        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         overflow: hidden;
 
         img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
             display: block;
         }
 
@@ -201,12 +199,58 @@
             transform: rotateY(180deg);
         }
     }
+
+    &.is-matched &__inner {
+        box-shadow: 0 0 0 3px var(--match-color);
+    }
 }
 
 .page-game[data-theme="gaming"] {
     --match-color: #{$color-gaming-accent};
+
+    .card {
+        aspect-ratio: 105 / 120;
+
+        &__inner {
+            border-radius: 12px;
+            box-shadow: $color-gaming-card-shadow;
+        }
+
+        &__face {
+            border-radius: 12px;
+
+            &--back {
+                background: $color-gaming-back-gradient;
+            }
+
+            &--front {
+                background-color: $color-gaming-card-bg;
+            }
+        }
+    }
 }
 
 .page-game[data-theme="food"] {
     --match-color: #{$color-food-accent};
+
+    .card {
+        aspect-ratio: 1 / 1;
+
+        &__inner {
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        &__face {
+            border-radius: 0;
+
+            &--back {
+                background-color: $color-food-accent;
+            }
+
+            &--front {
+                background-color: $color-food-card-bg;
+            }
+        }
+    }
 }
