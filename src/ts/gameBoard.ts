@@ -8,6 +8,8 @@ export function createGameBoard(settings: GameSettings): void {
     const boardElement = document.getElementById('game-board');
     if (!boardElement) return;
 
+    updateCurrentPlayerDisplay(settings.player);
+
     boardElement.innerHTML = '';
     boardElement.setAttribute('data-size', settings.boardSize.toString());
 
@@ -25,6 +27,16 @@ export function createGameBoard(settings: GameSettings): void {
     boardElement.appendChild(fragment);
 
     setupCardFlipLogic(boardElement);
+}
+
+export function updateCurrentPlayerDisplay(player: 'blue' | 'orange'): void {
+    const badge = document.querySelector('.current-player__badge');
+    const icon = document.getElementById('current-player-icon') as HTMLImageElement | null;
+    if (!badge || !icon) return;
+
+    badge.className = `current-player__badge current-player__badge--${player}`;
+    icon.src = `/assets/icons/chess_pawn_${player}.svg`;
+    icon.alt = `${player} player icon`;
 }
 
 function createCardElement(cardId: number, theme: 'gaming' | 'food'): HTMLElement {
