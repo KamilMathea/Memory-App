@@ -132,6 +132,11 @@ function checkForMatch(): void {
     }
 }
 
+function switchPlayer(): void {
+    activePlayer = activePlayer === 'blue' ? 'orange' : 'blue';
+    updateCurrentPlayerDisplay(activePlayer);
+}
+
 function handleMatch(cardOne: HTMLElement, cardTwo: HTMLElement): void {
     cardOne.classList.add('is-matched');
     cardTwo.classList.add('is-matched');
@@ -145,6 +150,7 @@ function handleMismatch(cardOne: HTMLElement, cardTwo: HTMLElement): void {
     setTimeout(() => {
         cardOne.classList.remove('is-flipped');
         cardTwo.classList.remove('is-flipped');
+        switchPlayer();
         resetTurn();
     }, 1000);
 }
