@@ -1,3 +1,6 @@
+let scores: Record<'blue' | 'orange', number> = { blue: 0, orange: 0 };
+let activePlayer: 'blue' | 'orange' = 'blue';
+
 export interface GameSettings {
     theme: 'gaming' | 'food';
     player: 'blue' | 'orange';
@@ -8,6 +11,7 @@ export function createGameBoard(settings: GameSettings): void {
     const boardElement = document.getElementById('game-board');
     if (!boardElement) return;
 
+    resetScores(settings.player);
     updateCurrentPlayerDisplay(settings.player);
 
     boardElement.innerHTML = '';
@@ -37,6 +41,19 @@ export function updateCurrentPlayerDisplay(player: 'blue' | 'orange'): void {
     badge.className = `current-player__badge current-player__badge--${player}`;
     icon.src = `/assets/icons/chess_pawn_${player}.svg`;
     icon.alt = `${player} player icon`;
+}
+
+function resetScores(startingPlayer: 'blue' | 'orange'): void {
+    scores = { blue: 0, orange: 0 };
+    activePlayer = startingPlayer;
+    updateScoreDisplay();
+}
+
+function updateScoreDisplay(): void {
+    const blueScore = document.getElementById('score-player-blue');
+    const orangeScore = document.getElementById('score-player-orange');
+    if (blueScore) blueScore.textContent = scores.blue.toString();
+    if (orangeScore) orangeScore.textContent = scores.orange.toString();
 }
 
 function createCardElement(cardId: number, theme: 'gaming' | 'food'): HTMLElement {
@@ -118,6 +135,8 @@ function checkForMatch(): void {
 function handleMatch(cardOne: HTMLElement, cardTwo: HTMLElement): void {
     cardOne.classList.add('is-matched');
     cardTwo.classList.add('is-matched');
+    scores[activePlayer]++;
+    updateScoreDisplay();
     resetTurn();
 }
 
