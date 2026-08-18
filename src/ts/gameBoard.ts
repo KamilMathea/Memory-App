@@ -31,6 +31,7 @@ export function createGameBoard(settings: GameSettings): void {
     boardElement.appendChild(fragment);
 
     setupCardFlipLogic(boardElement);
+    setupExitDialogLogic();
 }
 
 export function updateCurrentPlayerDisplay(player: 'blue' | 'orange'): void {
@@ -158,4 +159,34 @@ function handleMismatch(cardOne: HTMLElement, cardTwo: HTMLElement): void {
 function resetTurn(): void {
     flippedCards = [];
     isLockBoard = false;
+}
+
+export function setupExitDialogLogic(): void {
+    const btnExit = document.getElementById('btn-exit-game');
+    const dialog = document.getElementById('exit-dialog') as HTMLDialogElement | null;
+    const btnCancel = document.getElementById('btn-cancel-exit');
+    const btnConfirm = document.getElementById('btn-confirm-exit');
+    if (!btnExit || !dialog || !btnCancel || !btnConfirm) return;
+
+    btnExit.addEventListener('click', () => dialog.showModal());
+    btnCancel.addEventListener('click', () => dialog.close());
+    btnConfirm.addEventListener('click', () => handleGameQuit(dialog));
+    dialog.addEventListener('click', (e) => handleBackdropClick(e, dialog));
+}
+
+function handleBackdropClick(event: MouseEvent, dialog: HTMLDialogElement): void {
+    const rect = dialog.getBoundingClientRect();
+    const isOutside = event.clientX < rect.left || event.clientX > rect.right ||
+                      event.clientY < rect.top || event.clientY > rect.bottom;
+    if (isOutside) dialog.close();
+}
+
+function handleGameQuit(dialog: HTMLDialogElement): void {
+    dialog.close();
+    const pageSettings = document.getElementById('page-settings');
+    const pageGame = document.getElementById('page-game');
+    if (pageGame && pageSettings) {
+        pageGame.classList.add('is-hidden');
+        pageSettings.classList.remove('is-hidden');
+    }
 }

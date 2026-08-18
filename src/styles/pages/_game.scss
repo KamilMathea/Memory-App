@@ -19,17 +19,26 @@
 
         .current-player__text {
             font-family: $font-orbitron;
-            color: $color-text-light;
+            color: $color-text-white;
         }
 
         .btn--exit {
             font-family: $font-orbitron;
             background-color: $color-exit-bg-gaming;
-            color: $color-text-light;
+            color: $color-text-white;
             border: 1px solid $color-exit-border-gaming;
 
             .btn__icon-exit {
                 filter: none;
+            }
+
+            &:hover {
+                background-color: $color-gaming-exit-hover-bg;
+                color: $color-exit-border-gaming;
+
+                .btn__icon-exit {
+                    filter: drop-shadow(0 0 0 $color-exit-border-gaming);
+                }
             }
         }
     }
@@ -54,6 +63,15 @@
 
             .btn__icon-exit {
                 filter: invert(56%) sepia(82%) saturate(1450%) hue-rotate(346deg) brightness(98%) contrast(93%);
+            }
+
+            &:hover {
+                background-color: $color-food-accent;
+                color: $color-text-white;
+
+                .btn__icon-exit {
+                    filter: brightness(0) invert(1);
+                }
             }
         }
     }
@@ -267,6 +285,119 @@
             &--front {
                 background-color: $color-food-card-bg;
             }
+        }
+    }
+}
+
+.exit-dialog {
+    border: none;
+    border-radius: 20px;
+    padding: 2rem;
+    margin: auto;
+    max-width: 450px;
+    width: 90%;
+    
+    transform: translateY(100vh);
+    transition: transform 0.3s ease-out;
+
+    &[open] {
+        transform: translateY(0);
+    }
+
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &__text {
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    &__actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem 1rem;
+        }
+    }
+}
+
+.page-game[data-theme="gaming"] ~ .exit-dialog,
+body:has(.page-game[data-theme="gaming"]) .exit-dialog {
+    background-color: $color-dialog-gaming-bg;
+
+    .exit-dialog__text {
+        font-family: $font-orbitron;
+        color: $color-text-dark;
+    }
+
+    .btn--dialog-cancel {
+        font-family: $font-orbitron;
+        background-color: $color-gaming-accent;
+        color: $color-text-white;
+        border: 1px solid $color-exit-border-gaming;
+        border-radius: 6px;
+
+        &:hover {
+            background-color: $color-gaming-cancel-hover-bg;
+            color: $color-gaming-accent;
+            box-shadow: $shadow-dialog-btn;
+        }
+    }
+
+    .btn--dialog-confirm {
+        font-family: $font-orbitron;
+        background-color: $color-exit-bg-gaming;
+        color: $color-gaming-accent;
+        border: 1px solid $color-exit-border-gaming;
+        border-radius: 6px;
+
+        &:hover {
+            background-color: $color-gaming-accent;
+            color: $color-text-white;
+            box-shadow: $shadow-dialog-btn;
+        }
+    }
+}
+
+.page-game[data-theme="food"] ~ .exit-dialog,
+body:has(.page-game[data-theme="food"]) .exit-dialog {
+    background-color: $color-dialog-food-bg;
+
+    .exit-dialog__text {
+        font-family: $font-klee;
+        color: $color-food-player-text;
+    }
+
+    .btn--dialog-cancel {
+        font-family: $font-delius;
+        background-color: $color-btn-cancel-food-bg;
+        color: $color-text-white;
+        border: 1px solid $color-food-accent;
+        border-radius: 3px;
+
+        &:hover {
+            background-color: $color-food-accent;
+            box-shadow: $shadow-dialog-btn;
+        }
+    }
+
+    .btn--dialog-confirm {
+        font-family: $font-delius;
+        background-color: $color-exit-bg-food;
+        color: $color-food-accent;
+        border: 1px solid $color-food-accent;
+        border-radius: 3px;
+
+        &:hover {
+            background-color: $color-food-accent;
+            color: $color-text-white;
+            box-shadow: $shadow-dialog-btn;
         }
     }
 }
