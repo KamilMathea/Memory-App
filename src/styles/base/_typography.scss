@@ -27,6 +27,14 @@
 @font-face {
     font-family: 'Orbitron';
     src: url('/fonts/Orbitron-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('/fonts/Orbitron-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -36,6 +44,14 @@
     font-family: 'Klee One';
     src: url('/fonts/KleeOne-Regular.ttf') format('truetype');
     font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Klee One';
+    src: url('/fonts/KleeOne-SemiBold.ttf') format('truetype');
+    font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
