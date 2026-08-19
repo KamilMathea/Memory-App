@@ -149,6 +149,24 @@
         </main>
     </section>
 
+    <section id="page-gameover" class="page-gameover game-over-screen is-hidden" data-theme="gaming">
+        <h1 class="game-over-screen__title">GAME OVER</h1>
+
+        <div class="game-over-screen__score-container">
+            <span class="game-over-screen__score-label">Final score</span>
+            <div class="game-over-screen__scores">
+                <div class="score-box score-box--orange">
+                    <img src="/assets/icons/chess_pawn_orange.svg" alt="" class="score-box__icon">
+                    <span id="gameover-score-orange" class="score-box__count">0</span>
+                </div>
+                <div class="score-box score-box--blue">
+                    <img src="/assets/icons/chess_pawn_blue.svg" alt="" class="score-box__icon">
+                    <span id="gameover-score-blue" class="score-box__count">0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <dialog id="exit-dialog" class="exit-dialog">
         <p class="exit-dialog__text">Are you sure you want to quit the game?</p>
         <div class="exit-dialog__actions">

@@ -1,5 +1,6 @@
 let scores: Record<'blue' | 'orange', number> = { blue: 0, orange: 0 };
 let activePlayer: 'blue' | 'orange' = 'blue';
+let currentTheme: 'gaming' | 'food' = 'gaming';
 
 export interface GameSettings {
     theme: 'gaming' | 'food';
@@ -11,6 +12,7 @@ export function createGameBoard(settings: GameSettings): void {
     const boardElement = document.getElementById('game-board');
     if (!boardElement) return;
 
+    currentTheme = settings.theme;
     resetScores(settings.player);
     updateCurrentPlayerDisplay(settings.player);
 
@@ -144,6 +146,7 @@ function handleMatch(cardOne: HTMLElement, cardTwo: HTMLElement): void {
     scores[activePlayer]++;
     updateScoreDisplay();
     resetTurn();
+    checkGameOver();
 }
 
 function handleMismatch(cardOne: HTMLElement, cardTwo: HTMLElement): void {
@@ -177,7 +180,7 @@ export function setupExitDialogLogic(): void {
 function handleBackdropClick(event: MouseEvent, dialog: HTMLDialogElement): void {
     const rect = dialog.getBoundingClientRect();
     const isOutside = event.clientX < rect.left || event.clientX > rect.right ||
-                      event.clientY < rect.top || event.clientY > rect.bottom;
+        event.clientY < rect.top || event.clientY > rect.bottom;
     if (isOutside) dialog.close();
 }
 
@@ -189,4 +192,33 @@ function handleGameQuit(dialog: HTMLDialogElement): void {
         pageGame.classList.add('is-hidden');
         pageSettings.classList.remove('is-hidden');
     }
+}
+
+function checkGameOver(): void {
+    const matchedCards = document.querySelectorAll('.card.is-matched');
+    const totalCards = document.querySelectorAll('.card').length;
+    
+    if (matchedCards.length === totalCards && totalCards > 0) {
+        setTimeout(() => triggerGameOver(currentTheme), 500);
+    }
+}
+
+function updateGameOverScores(): void {
+    const orangeElem = document.getElementById('gameover-score-orange');
+    const blueElem = document.getElementById('gameover-score-blue');
+
+    if (orangeElem) orangeElem.textContent = scores.orange.toString();
+    if (blueElem) blueElem.textContent = scores.blue.toString();
+}
+
+function triggerGameOver(theme: 'gaming' | 'food'): void {
+    const pageGame = document.getElementById('page-game');
+    const pageGameOver = document.getElementById('page-gameover');
+
+    if (!pageGame || !pageGameOver) return;
+
+    updateGameOverScores();
+    pageGameOver.setAttribute('data-theme', theme);
+    pageGame.classList.add('is-hidden');
+    pageGameOver.classList.remove('is-hidden');
 }
