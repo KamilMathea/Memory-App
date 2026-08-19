@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory App</title>
 
-    <link rel="shortcut icon" href="./assets/icons/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/icons/favicon.svg" type="image/x-icon">
 </head>
 
 <body>
     <section id="page-home" class="page-home">
-        <img src="/assets/icons/stadia_controller.svg" alt="" class="page-home__controller-bg">
+        <img src="assets/icons/stadia_controller.svg" alt="" class="page-home__controller-bg">
         <div class="page-home__content">
             <span class="page-home__subtitle">It’s play time.</span>
             <h1 class="page-home__title">Ready to play?</h1>
             <button id="btn-to-settings" class="btn btn--primary" type="button">
-                <img src="/assets/icons/stadia_controller_black.svg" alt="" class="btn__icon-controller">
+                <img src="assets/icons/stadia_controller_black.svg" alt="" class="btn__icon-controller">
                 <span>Play</span>
-                <img src="/assets/icons/arrow_right.svg" alt="" class="btn__icon-arrow">
+                <img src="assets/icons/arrow_right.svg" alt="" class="btn__icon-arrow">
             </button>
         </div>
     </section>
@@ -26,7 +26,7 @@
     <section id="page-settings" class="page-settings is-hidden">
         <header class="page-settings__header">
             <h1 class="page-settings__title">Settings</h1>
-            <img src="/assets/icons/yellow_line_header.svg" alt="" class="page-settings__title-line">
+            <img src="assets/icons/yellow_line_header.svg" alt="" class="page-settings__title-line">
         </header>
 
         <div class="page-settings__body">
@@ -34,62 +34,62 @@
                 <form id="settings-form" class="page-settings__form">
                     <div class="settings-group">
                         <div class="settings-group__title-wrapper">
-                            <img src="/assets/icons/palette.svg" alt="" class="settings-group__icon">
+                            <img src="assets/icons/palette.svg" alt="" class="settings-group__icon">
                             <h2 class="settings-group__title">Game themes</h2>
                         </div>
                         <div class="settings-group__options">
                             <label class="radio-option">
                                 <input type="radio" name="theme" value="gaming" checked>
                                 <span class="radio-option__label">Gaming theme</span>
-                                <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
+                                <img src="assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
                             </label>
                             <label class="radio-option">
                                 <input type="radio" name="theme" value="food">
                                 <span class="radio-option__label">Food theme</span>
-                                <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
+                                <img src="assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
                             </label>
                         </div>
                     </div>
 
                     <div class="settings-group">
                         <div class="settings-group__title-wrapper">
-                            <img src="/assets/icons/chess_pawn.svg" alt="" class="settings-group__icon">
+                            <img src="assets/icons/chess_pawn.svg" alt="" class="settings-group__icon">
                             <h2 class="settings-group__title">Choose player</h2>
                         </div>
                         <div class="settings-group__options">
                             <label class="radio-option">
                                 <input type="radio" name="player" value="blue" checked>
                                 <span class="radio-option__label">Blue</span>
-                                <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
+                                <img src="assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
                             </label>
                             <label class="radio-option">
                                 <input type="radio" name="player" value="orange">
                                 <span class="radio-option__label">Orange</span>
-                                <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
+                                <img src="assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
                             </label>
                         </div>
                     </div>
 
                     <div class="settings-group">
                         <div class="settings-group__title-wrapper">
-                            <img src="/assets/icons/board.svg" alt="" class="settings-group__icon">
+                            <img src="assets/icons/board.svg" alt="" class="settings-group__icon">
                             <h2 class="settings-group__title">Board size</h2>
                         </div>
                         <div class="settings-group__options">
                             <label class="radio-option">
                                 <input type="radio" name="boardSize" value="16" checked>
                                 <span class="radio-option__label">16 cards</span>
-                                <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
+                                <img src="assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
                             </label>
                             <label class="radio-option">
                                 <input type="radio" name="boardSize" value="24">
                                 <span class="radio-option__label">24 cards</span>
-                                <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
+                                <img src="assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
                             </label>
                             <label class="radio-option">
                                 <input type="radio" name="boardSize" value="36">
                                 <span class="radio-option__label">36 cards</span>
-                                <img src="/assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
+                                <img src="assets/icons/yellow_line.svg" alt="" class="radio-option__hover-line">
                             </label>
                         </div>
                     </div>
@@ -98,18 +98,18 @@
 
             <div class="page-settings__right">
                 <div class="preview-box">
-                    <img id="theme-preview-img" src="/assets/icons/preview_gaming_theme.svg" alt="Theme Preview"
+                    <img id="theme-preview-img" src="assets/icons/preview_gaming_theme.svg" alt="Theme Preview"
                         class="preview-box__image">
 
                     <div class="preview-box__bar">
                         <span id="selected-theme" class="preview-box__text">Theme</span>
-                        <img src="/assets/icons/yellow_slash.svg" alt="" class="preview-box__slash">
+                        <img src="assets/icons/yellow_slash.svg" alt="" class="preview-box__slash">
                         <span id="selected-player" class="preview-box__text">Player</span>
-                        <img src="/assets/icons/yellow_slash.svg" alt="" class="preview-box__slash">
+                        <img src="assets/icons/yellow_slash.svg" alt="" class="preview-box__slash">
                         <span id="selected-board-size" class="preview-box__text">Board size</span>
 
                         <button id="btn-start" class="btn btn--start" type="submit" form="settings-form" disabled>
-                            <img src="/assets/icons/smart_display.svg" alt="" class="btn__icon">
+                            <img src="assets/icons/smart_display.svg" alt="" class="btn__icon">
                             <span>Start</span>
                         </button>
                     </div>
@@ -122,11 +122,11 @@
         <header class="game-header">
             <div class="game-header__scores">
                 <div class="score-box score-box--orange">
-                    <img src="/assets/icons/chess_pawn_orange.svg" alt="" class="score-box__icon">
+                    <img src="assets/icons/chess_pawn_orange.svg" alt="" class="score-box__icon">
                     <span id="score-player-orange" class="score-box__count">0</span>
                 </div>
                 <div class="score-box score-box--blue">
-                    <img src="/assets/icons/chess_pawn_blue.svg" alt="" class="score-box__icon">
+                    <img src="assets/icons/chess_pawn_blue.svg" alt="" class="score-box__icon">
                     <span id="score-player-blue" class="score-box__count">0</span>
                 </div>
             </div>
@@ -134,13 +134,13 @@
             <div class="game-header__current-player">
                 <span class="current-player__text">Current player:</span>
                 <div class="current-player__badge current-player__badge--blue">
-                    <img id="current-player-icon" src="/assets/icons/chess_pawn_blue.svg" alt=""
+                    <img id="current-player-icon" src="assets/icons/chess_pawn_blue.svg" alt=""
                         class="current-player__icon">
                 </div>
             </div>
 
             <button id="btn-exit-game" class="btn btn--exit" type="button">
-                <img src="/assets/icons/exit.svg" alt="" class="btn__icon-exit">
+                <img src="assets/icons/exit.svg" alt="" class="btn__icon-exit">
                 <span>Exit game</span>
             </button>
         </header>
@@ -156,11 +156,11 @@
             <span class="game-over-screen__score-label">Final score</span>
             <div class="game-over-screen__scores">
                 <div class="score-box score-box--orange">
-                    <img src="/assets/icons/chess_pawn_orange.svg" alt="" class="score-box__icon">
+                    <img src="assets/icons/chess_pawn_orange.svg" alt="" class="score-box__icon">
                     <span id="gameover-score-orange" class="score-box__count">0</span>
                 </div>
                 <div class="score-box score-box--blue">
-                    <img src="/assets/icons/chess_pawn_blue.svg" alt="" class="score-box__icon">
+                    <img src="assets/icons/chess_pawn_blue.svg" alt="" class="score-box__icon">
                     <span id="gameover-score-blue" class="score-box__count">0</span>
                 </div>
             </div>
@@ -174,7 +174,7 @@
         </div>
 
         <div class="result-screen__image-container">
-            <img id="winner-image" src="/assets/end-screen/gaming_theme_trophy.svg" alt="Winner Result Illustration"
+            <img id="winner-image" src="assets/end-screen/gaming_theme_trophy.svg" alt="Winner Result Illustration"
                 class="result-screen__image">
         </div>
 
@@ -189,7 +189,7 @@
         </div>
     </dialog>
 
-    <script type="module" src="./src/ts/main.ts"></script>
+    <script type="module" src="src/ts/main.ts"></script>
 </body>
 
 </html>

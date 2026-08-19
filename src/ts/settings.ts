@@ -5,12 +5,11 @@ function updatePreviewImage(themeValue: string): void {
     if (!previewImg) return;
 
     if (themeValue === 'gaming') {
-        previewImg.src = '/assets/icons/preview_gaming_theme.svg';
+        previewImg.src = 'assets/icons/preview_gaming_theme.svg';
     } else if (themeValue === 'food') {
-        previewImg.src = '/assets/icons/preview_food_theme.svg';
+        previewImg.src = 'assets/icons/preview_food_theme.svg';
     }
 }
-
 function getSelectedRadioValue(name: string): string | null {
     const selected = document.querySelector<HTMLInputElement>(`input[name="${name}"]:checked`);
     return selected ? selected.value : null;

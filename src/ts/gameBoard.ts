@@ -42,7 +42,7 @@ export function updateCurrentPlayerDisplay(player: 'blue' | 'orange'): void {
     if (!badge || !icon) return;
 
     badge.className = `current-player__badge current-player__badge--${player}`;
-    icon.src = `/assets/icons/chess_pawn_${player}.svg`;
+    icon.src = `assets/icons/chess_pawn_${player}.svg`;
     icon.alt = `${player} player icon`;
 }
 
@@ -65,10 +65,10 @@ function createCardElement(cardId: number, theme: 'gaming' | 'food'): HTMLElemen
     card.dataset.cardId = cardId.toString();
 
     const backContent = theme === 'food'
-        ? `<img src="/assets/icons/DA_logo.svg" alt="Developer Akademie Logo">`
+        ? `<img src="assets/icons/DA_logo.svg" alt="Developer Akademie Logo">`
         : '';
 
-    const frontSrc = `/assets/cards/${theme}/card_${cardId}.svg`;
+    const frontSrc = `assets/cards/${theme}/card_${cardId}.svg`;
 
     card.innerHTML = `
         <div class="card__inner">
@@ -239,11 +239,11 @@ function triggerGameOver(theme: 'gaming' | 'food'): void {
 
 function getWinnerImagePath(winner: 'blue' | 'orange' | 'draw', theme: 'gaming' | 'food'): string {
     if (winner === 'draw') {
-        return `/assets/end-screen/${theme}_theme_scale.svg`;
+        return `assets/end-screen/${theme}_theme_scale.svg`;
     }
     return theme === 'gaming'
-        ? '/assets/end-screen/gaming_theme_trophy.svg'
-        : `/assets/end-screen/food_theme_${winner}_chess_pawn.svg`;
+        ? 'assets/end-screen/gaming_theme_trophy.svg'
+        : `assets/end-screen/food_theme_${winner}_chess_pawn.svg`;
 }
 
 function renderWinnerScreen(winner: 'blue' | 'orange' | 'draw', theme: 'gaming' | 'food'): void {
