@@ -197,7 +197,7 @@ function handleGameQuit(dialog: HTMLDialogElement): void {
 function checkGameOver(): void {
     const matchedCards = document.querySelectorAll('.card.is-matched');
     const totalCards = document.querySelectorAll('.card').length;
-    
+
     if (matchedCards.length === totalCards && totalCards > 0) {
         setTimeout(() => triggerGameOver(currentTheme), 500);
     }
@@ -211,14 +211,69 @@ function updateGameOverScores(): void {
     if (blueElem) blueElem.textContent = scores.blue.toString();
 }
 
+function setupHomeButton(): void {
+    const btnHome = document.getElementById('btn-winner-home');
+    const pageWinner = document.getElementById('page-winner');
+    const pageHome = document.getElementById('page-home');
+
+    if (!btnHome || !pageWinner || !pageHome) return;
+    btnHome.addEventListener('click', () => {
+        pageWinner.classList.add('is-hidden');
+        pageHome.classList.remove('is-hidden');
+    });
+}
+
 function triggerGameOver(theme: 'gaming' | 'food'): void {
     const pageGame = document.getElementById('page-game');
     const pageGameOver = document.getElementById('page-gameover');
-
     if (!pageGame || !pageGameOver) return;
 
     updateGameOverScores();
     pageGameOver.setAttribute('data-theme', theme);
     pageGame.classList.add('is-hidden');
     pageGameOver.classList.remove('is-hidden');
+
+    setupHomeButton();
+    setTimeout(() => showWinnerScreen(theme), 3000);
+}
+
+function getWinnerImagePath(winner: 'blue' | 'orange' | 'draw', theme: 'gaming' | 'food'): string {
+    if (winner === 'draw') {
+        return `/assets/end-screen/${theme}_theme_scale.svg`;
+    }
+    return theme === 'gaming'
+        ? '/assets/end-screen/gaming_theme_trophy.svg'
+        : `/assets/end-screen/food_theme_${winner}_chess_pawn.svg`;
+}
+
+function renderWinnerScreen(winner: 'blue' | 'orange' | 'draw', theme: 'gaming' | 'food'): void {
+    const headline = document.getElementById('winner-headline');
+    const playerText = document.getElementById('winner-player');
+    const imgElem = document.getElementById('winner-image') as HTMLImageElement | null;
+
+    if (headline) headline.textContent = winner === 'draw' ? "It's a" : 'The winner is';
+    if (playerText) {
+        playerText.textContent = winner === 'draw' ? 'DRAW' : `${winner} Player`;
+        playerText.className = `result-screen__player result-screen__player--${winner}`;
+    }
+    if (imgElem) imgElem.src = getWinnerImagePath(winner, theme);
+}
+
+function getWinningPlayer(): 'blue' | 'orange' | 'draw' {
+    if (scores.blue > scores.orange) return 'blue';
+    if (scores.orange > scores.blue) return 'orange';
+    return 'draw';
+}
+
+function showWinnerScreen(theme: 'gaming' | 'food'): void {
+    const pageGameOver = document.getElementById('page-gameover');
+    const pageWinner = document.getElementById('page-winner');
+    if (!pageGameOver || !pageWinner) return;
+
+    const winner = getWinningPlayer();
+    renderWinnerScreen(winner, theme);
+
+    pageWinner.setAttribute('data-theme', theme);
+    pageGameOver.classList.add('is-hidden');
+    pageWinner.classList.remove('is-hidden');
 }

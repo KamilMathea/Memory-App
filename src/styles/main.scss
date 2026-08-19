@@ -5,6 +5,7 @@
 @use './pages/settings';
 @use 'pages/game';
 @use 'components/gameover';
+@use 'components/winner';
 
 *, *::before, *::after {
     box-sizing: border-box;

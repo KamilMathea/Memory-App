@@ -1,0 +1,100 @@
+@use '../abstract/variables' as *;
+
+.result-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100dvh;
+    gap: 2rem;
+    padding: 2rem;
+
+    &__header {
+        text-align: center;
+    }
+
+    &__headline {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__player {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-transform: capitalize;
+
+        &--blue {
+            color: rgba(34, 152, 219, 1);
+        }
+
+        &--orange {
+            color: rgba(234, 105, 0, 1);
+        }
+    }
+
+    &__image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        border-radius: 6px;
+    }
+
+    &__image {
+        max-width: 200px;
+        height: auto;
+    }
+}
+
+.btn--home {
+    font-size: 1rem;
+}
+
+.page-winner[data-theme="gaming"] {
+    background-color: $color-bg-gaming;
+
+    .result-screen__headline {
+        font-family: $font-orbitron;
+        color: $color-text-white;
+    }
+
+    .result-screen__player {
+        font-family: $font-orbitron;
+    }
+
+    .result-screen__headline,
+    .result-screen__player {
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn--home {
+        font-family: $font-orbitron;
+        border: 2px solid $color-exit-border-gaming;
+        background-color: $color-exit-bg-gaming;
+        color: $color-text-white;
+        padding: 0.75rem 2.5rem;
+    }
+}
+
+.page-winner[data-theme="food"] {
+    background-color: $color-bg-food;
+
+    .result-screen__headline,
+    .result-screen__player {
+        font-family: $font-klee;
+        color: $color-food-player-text;
+    }
+
+    .result-screen__image-container {
+        background-color: $color-food-card-bg;
+        box-shadow: $shadow-dialog-btn;
+    }
+
+    .btn--home {
+        font-family: $font-klee;
+        background-color: $color-food-accent;
+        color: $color-text-white;
+        padding: 0.75rem 2.5rem;
+    }
+}
