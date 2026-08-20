@@ -16,17 +16,49 @@ A responsive, dynamic browser-based Memory card game built with TypeScript, HTML
 
 ## Tech Stack
 
-- **HTML5**: Semantic layout with native `<dialog>` elements.
+- **HTML5**: Semantic layout with native `<dialog>` elements for accessibility (WCAG compliant).
 - **TypeScript**: Strictly typed game logic, state management, and DOM manipulation.
-- **SCSS**: Modular styles organized via BEM methodology and custom animations.
+- **SCSS**: Modular styles organized via BEM methodology and custom CSS animations.
 
-## Project Structure
+## Getting Started
 
-```text
+This is a web application built with modern tooling. Follow the steps below to set up and run the project locally.
+
+### Prerequisites
+
+Ensure you have [Node.js](https://nodejs.org/) (v18 or higher) and `npm` installed on your machine.
+
+### Installation
+
+1. Clone the repository:
+git clone https://github.com/KamilMathea/Memory-App.git
+cd Memory-App
+
+2. Install project dependencies:
+npm install
+
+### Local Development
+
+To start the local development server with hot-reloading:
+npm run dev
+
+Open your browser and navigate to http://localhost:5173 (or the URL provided in your terminal).
+
+### Build for Production
+
+To compile TypeScript, bundle assets, and generate the static build files:
+npm run build
+
+The compiled output will be generated in the dist/ directory, ready to be hosted on any web server.
+
+### Project Structure
+
 ├── assets/             # Icons, illustrations, and theme graphic assets
 ├── src/
+│   ├── scss/           # SCSS modules, mixins, and theme styling
 │   └── ts/
 │       ├── main.ts     # Application entry point
 │       └── ...         # Modular game logic files
 ├── index.html          # Single Page Application structure
+├── package.json        # Project dependencies and build scripts
 └── README.md
