@@ -1,37 +1,60 @@
+/**
+ * @fileoverview Manages settings page interactions, theme previews, option validation, and game launch initialization.
+ * @module settings
+ */
+
 import { createGameBoard, GameSettings } from './gameBoard';
 
+/**
+ * Updates the preview image based on the selected theme.
+ */
 function updatePreviewImage(themeValue: string): void {
     const previewImg = document.getElementById('theme-preview-img') as HTMLImageElement;
     if (!previewImg) return;
-    previewImg.src = themeValue === 'food'
-        ? 'assets/icons/preview_food_theme.svg'
+    previewImg.src = themeValue === 'food' 
+        ? 'assets/icons/preview_food_theme.svg' 
         : 'assets/icons/preview_gaming_theme.svg';
 }
 
+/**
+ * Returns the value of the checked radio input for a given group.
+ */
 function getSelectedRadioValue(name: string): string | null {
     const selected = document.querySelector<HTMLInputElement>(`input[name="${name}"]:checked`);
     return selected ? selected.value : null;
 }
 
+/**
+ * Previews theme image on mouse enter.
+ */
 function handleThemeHover(event: MouseEvent): void {
     const input = (event.currentTarget as HTMLElement).querySelector('input') as HTMLInputElement;
     if (input) updatePreviewImage(input.value);
 }
 
+/**
+ * Restores active theme preview on mouse leave.
+ */
 function handleThemeHoverLeave(): void {
     const activeTheme = getSelectedRadioValue('theme');
     if (activeTheme) updatePreviewImage(activeTheme);
 }
 
+/**
+ * Updates text summary label for a single setting option.
+ */
 function updateFieldLabel(name: string, targetId: string, fallbackText: string): void {
     const input = document.querySelector<HTMLInputElement>(`input[name="${name}"]:checked`);
     const targetEl = document.getElementById(targetId);
     if (!targetEl) return;
-
+    
     const labelText = input?.closest('label')?.querySelector('.radio-option__label')?.textContent;
     targetEl.textContent = labelText || fallbackText;
 }
 
+/**
+ * Enables start button only when all settings are selected.
+ */
 function updateStartButtonState(): void {
     const themeInput = document.querySelector<HTMLInputElement>('input[name="theme"]:checked');
     const playerInput = document.querySelector<HTMLInputElement>('input[name="player"]:checked');
@@ -44,6 +67,9 @@ function updateStartButtonState(): void {
     startBtn.classList.toggle('btn--start--active', isComplete);
 }
 
+/**
+ * Refreshes summary labels and start button state.
+ */
 function updateSettingsSummary(): void {
     updateFieldLabel('theme', 'selected-theme', 'Theme');
     updateFieldLabel('player', 'selected-player', 'Player');
@@ -51,6 +77,9 @@ function updateSettingsSummary(): void {
     updateStartButtonState();
 }
 
+/**
+ * Attaches hover listeners to theme options for dynamic preview.
+ */
 function attachThemeHoverListeners(): void {
     const themeOptions = document.querySelectorAll('input[name="theme"]');
     themeOptions.forEach((radio) => {
@@ -61,6 +90,9 @@ function attachThemeHoverListeners(): void {
     });
 }
 
+/**
+ * Handles form submission, extracts settings, and launches game board.
+ */
 function handleFormSubmit(event: Event, form: HTMLFormElement): void {
     event.preventDefault();
     const formData = new FormData(form);
@@ -80,6 +112,9 @@ function handleFormSubmit(event: Event, form: HTMLFormElement): void {
     pageGame?.classList.remove('is-hidden');
 }
 
+/**
+ * Initializes settings page listeners and initial state summary.
+ */
 export function initSettings(): void {
     const form = document.getElementById('settings-form') as HTMLFormElement | null;
     if (form) {
