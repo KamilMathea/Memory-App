@@ -5,6 +5,8 @@
 let scores: Record<'blue' | 'orange', number> = { blue: 0, orange: 0 };
 let activePlayer: 'blue' | 'orange' = 'blue';
 let currentTheme: 'gaming' | 'food' = 'gaming';
+let flippedCards: HTMLElement[] = [];
+let isLockBoard = false;
 
 /**
  * Configuration options required to build a game board session.
@@ -130,9 +132,6 @@ function shuffleArray<T>(array: T[]): T[] {
     }
     return shuffled;
 }
-
-let flippedCards: HTMLElement[] = [];
-let isLockBoard = false;
 
 /**
  * Binds the click event listener to the game board for handling card flips.
