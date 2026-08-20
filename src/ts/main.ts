@@ -2,7 +2,6 @@
  * @fileoverview Application entry point handling DOM initialization and navigation.
  */
 
-import '../styles/main.scss';
 import { initSettings } from './settings';
 
 /**
