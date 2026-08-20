@@ -51,8 +51,9 @@ npm run build
 
 The compiled output will be generated in the dist/ directory, ready to be hosted on any web server.
 
-### Project Structure
+## Project Structure
 
+```text
 ├── assets/             # Icons, illustrations, and theme graphic assets
 ├── src/
 │   ├── scss/           # SCSS modules, mixins, and theme styling
