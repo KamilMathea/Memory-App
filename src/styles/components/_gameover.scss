@@ -1,5 +1,16 @@
 @use '../abstract/variables' as *;
 
+@keyframes flyInFromTop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .game-over-screen {
     display: flex;
     flex-direction: column;
@@ -8,6 +19,7 @@
     width: 100%;
     min-height: 100dvh;
     gap: 2rem;
+    animation: flyInFromTop 0.5s ease-out forwards;
 
     &__title {
         font-size: 3rem;
