@@ -20,3 +20,10 @@
 body {
     height: 100dvh;
 }
+
+.content-wrapper {
+    width: 100%;
+    max-width: variables.$breakpoint-widescreen;
+    margin-left: auto;
+    margin-right: auto;
+}
