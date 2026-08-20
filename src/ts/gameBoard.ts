@@ -98,13 +98,23 @@ function createCardElement(cardId: number, theme: 'gaming' | 'food'): HTMLElemen
     const card = document.createElement('div');
     card.className = 'card';
     card.dataset.cardId = cardId.toString();
+    card.innerHTML = getCardTemplate(cardId, theme);
+    return card;
+}
 
+/**
+ * Generates the HTML template string for a card element.
+ * @param cardId - Numerical identifier for the card pair.
+ * @param theme - Visual theme identifier.
+ * @returns HTML string representation of the card faces.
+ */
+function getCardTemplate(cardId: number, theme: 'gaming' | 'food'): string {
     const backContent = theme === 'food'
         ? `<img src="assets/icons/DA_logo.svg" alt="Developer Akademie Logo">`
         : '';
     const frontSrc = `assets/cards/${theme}/card_${cardId}.svg`;
 
-    card.innerHTML = `
+    return `
         <div class="card__inner">
             <div class="card__face card__face--back">
                 ${backContent}
@@ -114,8 +124,6 @@ function createCardElement(cardId: number, theme: 'gaming' | 'food'): HTMLElemen
             </div>
         </div>
     `;
-
-    return card;
 }
 
 /**
