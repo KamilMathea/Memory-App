@@ -160,8 +160,8 @@
 .game-board {
     display: grid;
     flex: 1;
-    width: 100%;
-    max-width: 800px;
+    width: fit-content;
+    max-width: 100%;
     gap: 0.5rem;
     justify-content: center;
     align-content: center;
@@ -171,22 +171,21 @@
     min-height: 0;
 
     &[data-size="16"] {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(4, auto);
     }
 
     &[data-size="24"] {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-columns: repeat(6, auto);
     }
 
     &[data-size="36"] {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-columns: repeat(6, auto);
     }
 }
 
 .card {
-    width: 100%;
+    width: min(calc((100vw - 3rem) / 4), calc((100dvh - 180px) / 4 * 0.875));
     height: auto;
-    max-height: 100%;
     perspective: 1000px;
     cursor: pointer;
 
@@ -232,6 +231,14 @@
     &.is-matched &__inner {
         box-shadow: 0 0 0 3px var(--match-color);
     }
+}
+
+.game-board[data-size="24"] .card {
+    width: min(calc((100vw - 4rem) / 6), calc((100dvh - 180px) / 4 * 0.875));
+}
+
+.game-board[data-size="36"] .card {
+    width: min(calc((100vw - 4rem) / 6), calc((100dvh - 180px) / 6 * 0.875));
 }
 
 .page-game[data-theme="gaming"] {
