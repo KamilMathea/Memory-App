@@ -183,7 +183,7 @@
 }
 
 .card {
-    width: min(calc((100vw - 3rem) / 4), calc((100dvh - 180px) / 4 * 0.875));
+    width: min(calc((100vw - 3rem) / 4), calc((100dvh - 180px) / 4 * 0.7));
     height: auto;
     perspective: 1000px;
     cursor: pointer;
@@ -232,11 +232,11 @@
 }
 
 .game-board[data-size="24"] .card {
-    width: min(calc((100vw - 4rem) / 6), calc((100dvh - 180px) / 4 * 0.875));
+    width: min(calc((100vw - 4rem) / 6), calc((100dvh - 180px) / 4 * 0.7));
 }
 
 .game-board[data-size="36"] .card {
-    width: min(calc((100vw - 4rem) / 6), calc((100dvh - 180px) / 6 * 0.875));
+    width: min(calc((100vw - 4rem) / 6), calc((100dvh - 180px) / 6 * 0.7));
 }
 
 .page-game[data-theme="gaming"] {
