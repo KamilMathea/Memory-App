@@ -7,7 +7,7 @@
     min-height: 100dvh;
     background-color: #ffffff;
     color: $color-text-dark;
-    padding: 3rem;
+    padding: 6rem;
     gap: 3rem;
 
     &__header {
@@ -31,7 +31,7 @@
     &__body {
         display: flex;
         width: 100%;
-        gap: 4rem;
+        gap: 1rem;
         align-items: flex-start;
     }
 
@@ -186,7 +186,7 @@
 
 .btn--start {
     gap: 0.5rem;
-    padding: 0.5rem 1.25rem;
+    padding: 0.5rem 0.75rem;
     background-color: $color-btn-disabled;
     color: $color-text-dark;
     font-size: $font-size-base;
