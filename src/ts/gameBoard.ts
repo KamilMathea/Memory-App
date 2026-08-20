@@ -309,12 +309,12 @@ function updateGameOverScores(): void {
 function setupHomeButton(): void {
     const btnHome = document.getElementById('btn-winner-home');
     const pageWinner = document.getElementById('page-winner');
-    const pageHome = document.getElementById('page-home');
+    const pageSettings = document.getElementById('page-settings');
 
-    if (!btnHome || !pageWinner || !pageHome) return;
+    if (!btnHome || !pageWinner || !pageSettings) return;
     btnHome.addEventListener('click', () => {
         pageWinner.classList.add('is-hidden');
-        pageHome.classList.remove('is-hidden');
+        pageSettings.classList.remove('is-hidden');
     });
 }
 
