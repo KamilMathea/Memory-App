@@ -202,6 +202,7 @@
         height: 100%;
         transition: transform 0.6s ease;
         transform-style: preserve-3d;
+        border-radius: $card-border-radius;
     }
 
     &.is-flipped &__inner,
@@ -218,6 +219,7 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
+        border-radius: $card-border-radius;
 
         img {
             width: auto;
@@ -245,13 +247,10 @@
         aspect-ratio: 105 / 120;
 
         &__inner {
-            border-radius: 12px;
             box-shadow: $color-gaming-card-shadow;
         }
 
         &__face {
-            border-radius: 12px;
-
             &--back {
                 background: $color-gaming-back-gradient;
             }
@@ -270,13 +269,10 @@
         aspect-ratio: 1 / 1;
 
         &__inner {
-            border-radius: 0;
             box-shadow: none;
         }
 
         &__face {
-            border-radius: 0;
-
             &--back {
                 background-color: $color-food-accent;
             }
@@ -295,7 +291,6 @@
     margin: auto;
     max-width: 450px;
     width: 90%;
-    
     transform: translateY(100vh);
     transition: transform 0.3s ease-out;
 
@@ -326,7 +321,7 @@
     }
 }
 
-.page-game[data-theme="gaming"] ~ .exit-dialog,
+.page-game[data-theme="gaming"]~.exit-dialog,
 body:has(.page-game[data-theme="gaming"]) .exit-dialog {
     background-color: $color-dialog-gaming-bg;
 
@@ -364,7 +359,7 @@ body:has(.page-game[data-theme="gaming"]) .exit-dialog {
     }
 }
 
-.page-game[data-theme="food"] ~ .exit-dialog,
+.page-game[data-theme="food"]~.exit-dialog,
 body:has(.page-game[data-theme="food"]) .exit-dialog {
     background-color: $color-dialog-food-bg;
 
